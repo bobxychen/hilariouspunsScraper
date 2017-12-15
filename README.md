@@ -24,4 +24,4 @@ How many puns would you like?: 10
 (10 is eg for number of puns you want)
 
 
-It will output to both terminal and also a file called "hilariouspuns.txt", the text file is in UTF-8 and loses less data (eg a ' will become a ? in the terminal due to the restrictions of terminals).
+It will output to both terminal and also a file called "hilariouspuns.txt", the text file is in UTF-8 and looses less data (eg a ' will become a ? in the terminal due to the restrictions of terminals).
