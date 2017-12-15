@@ -11,16 +11,16 @@ It should be pretty efficent and fast enough. Also, it should be extendable to m
 Run it as any normal python script, but keep in mind that it is not purely a command line utility and has its own TUI
 
 Your terminal:
-'''bash
+```bash
 python hilariouspunsScraper.py
-'''
+```
 Program:
-'''bash
+```bash
 Welcome to a scraper for HilariousPuns.wordpress.com
 This will get the latest posts and put them in a file in the same directory called 'hilariouspuns.txt'
 
 How many puns would you like?: 10
-'''
+```
 (10 is eg for number of puns you want)
 
 
