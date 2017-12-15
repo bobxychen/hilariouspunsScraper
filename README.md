@@ -15,7 +15,7 @@ Your terminal:
 python hilariouspunsScraper.py
 ```
 Program:
-```bash
+```text
 Welcome to a scraper for HilariousPuns.wordpress.com
 This will get the latest posts and put them in a file in the same directory called 'hilariouspuns.txt'
 
