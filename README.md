@@ -6,6 +6,8 @@ This is a little scraper that I wrote for mainly myself to be able to get the la
 
 It should be pretty efficent and fast enough. Also, it should be extendable to most other wordpress sites (as most of them have similar HTML layouts) so you may have success through modifying a few lines.
 
+Prepare to laugh your head off when you read your terminal screen! 
+
 ### Usage
 
 Run it as any normal python script, but keep in mind that it is not purely a command line utility and has its own TUI
