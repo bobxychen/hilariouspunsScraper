@@ -32,8 +32,11 @@ while puns_gathered < num_puns_requested:  #this is here to get the pages (which
         
         for each1 in each.find_all("div","article-content"):
             try:
-                print each1.p.string.encode(sys.stdout.encoding, errors='replace')
-                pun_punchline = each1.p.string.encode('utf-8')
+                #print [x.string.encode('utf-8') for x in each1.find_all("p")]
+                for pun in each1.find_all("p"):
+                    print pun.string.encode(sys.stdout.encoding, errors='replace')
+
+                pun_punchline = "\n".join([x.string.encode('utf-8') for x in each1.find_all("p")])
 
             except AttributeError: #if the post has no content
                 pun_punchline = ""
