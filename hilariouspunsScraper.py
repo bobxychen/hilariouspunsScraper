@@ -6,11 +6,22 @@ import sys
 print "Welcome to a scraper for HilariousPuns.wordpress.com"
 print "This will get the latest posts and put them in a file in the same directory called 'hilariouspuns.txt'\n"
 
-num_puns_requested = int(raw_input("How many puns would you like?: "))
+num_puns_requested = raw_input("How many puns would you like? (type inf for all): ")
+
+if num_puns_requested == "inf":
+    num_puns_requested = float("inf")
+else:
+    num_puns_requested = int(num_puns_requested)
+
 # we will keep scraping until we have filled a counter
 puns_gathered = 0
 page_no = 0
 SampleURL = "https://hilariouspuns.wordpress.com/page/ _ /"
+
+#time to wipe out existing hilariouspuns.txt data
+
+with open("hilariouspuns.txt", "w") as file: #effectively deletes existsing file
+    pass
 
 while puns_gathered < num_puns_requested:  #this is here to get the pages (which are in bulks of 6)
 
@@ -21,10 +32,15 @@ while puns_gathered < num_puns_requested:  #this is here to get the pages (which
     data = r.content
     soup = BeautifulSoup(data, "lxml")
     
-    for each in soup.find_all("article"):
-        if puns_gathered < num_puns_requested: # this is here to refine it down to just the particular one
-            pass
-        else:
+    article_References = soup.find_all("article")
+
+    if len(article_References) == 0:
+        print "It seems we have finished all avaliable puns, with a total of {} puns".format(puns_gathered)
+        break
+
+    for each in article_References:
+        if puns_gathered >= num_puns_requested: # this is here to refine it down to just the particular one
+            print str(puns_gathered) + " of puns have been delivered"
             break
         
         print each.header.h1.a.string.encode(sys.stdout.encoding, errors='replace')
@@ -45,7 +61,7 @@ while puns_gathered < num_puns_requested:  #this is here to get the pages (which
 
         with open("hilariouspuns.txt", "a") as file:
             file.write(pun_title + "\n" + pun_punchline + 3 * "\n")
-
+        
         puns_gathered += 1
 
     
